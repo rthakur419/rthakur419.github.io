@@ -1,0 +1,117 @@
+<html>
+<head>
+<title>
+Sign up-EMusic
+</title>
+<link rel="icon" href="icon.png" sizes="16x16 32x32" type="image/png">
+
+<style>
+input[type=text]{
+background-image: url('uicon.png');
+background-position: 8px 12px;
+ background-size: 20px 20px;
+ background-repeat: no-repeat;
+
+}
+input[type=email]{
+background-image: url('eicon.png');
+background-position: 8px 12px;
+ background-size: 20px 20px;
+ background-repeat: no-repeat;
+}
+input[type=password]{
+background-image: url('passicon.png');
+background-position: 8px 12px;
+ background-size: 20px 20px;
+ background-repeat: no-repeat;
+}
+input[type=text]{
+
+}
+hr{
+ background-color: #eee;
+    border: 0 none;
+    height: 1px;	
+}
+input.data{
+width:120%;;
+height:50px;
+border: 2px solid #eee;;
+border-radius: 6px;
+padding: 12px 20px 12px 40px;
+}
+
+Form {
+margin-right: 500px;
+margin-left: 400px;
+}
+input[type=submit]
+{
+color: #000;
+border-radius: 8px;
+background-color:#4CAF50;
+font-size:30px;
+}
+a:link, a:visited {
+text-decoration: none
+}
+</style>
+
+<div align="center">
+<a href="1.html"><img src="icon.png"  height="55" width="55"></a>
+   <font face="garamond" color="#000" font size="45px" >EMusic</font> 
+ </div>
+ <hr>
+ </head>
+ <body>
+
+<Form> 
+<div align="center">
+    <h3>Sign up with your email address</h3>
+	<hr>
+	</div>
+    <p>Please fill in this form to create an account.</p>
+	<input type="text" class="data" placeholder="Username" id="username"name="uname" required>
+	<br><br>
+    <input type="email" class="data" placeholder="Email" id="email" name="e-mail" required>
+    <br><br>
+	<input type="password" class="data" placeholder="Password" id="pswd" name="pwd" required>
+    <br><br>
+	<input type="password" class="data" placeholder="Repeat Password" id="pswdrepeat" name="pswd-repeat" required>
+	<br><br>
+	<input type="text" name="ph" placeholder="Phone No." id="ph" class="data" style="background-image: url('dicon.png');background-position: 8px 12px;background-size: 20px 20px; background-repeat: no-repeat;" required>
+	<br><br>
+	<input type="radio" class="option" name="ma"> Male
+	<input type="radio" class="option" name="fe"> Female
+	<input type="radio" class="option" name="other"> Other
+	<br>
+	<br>
+	<p>By Clicking on Sign up you agree to our <a href="ts.html" style="color:dodgerblue">Terms & Conditions</a></p>
+	<br><br>
+      <div align="center"><input type="submit" onclick="datar()" value="Sign up"></div>
+	<br><br>
+	<p>Already have an account? <a href="login.html" style="color:dodgerblue">Log in </a></p>
+</form>
+<script>
+function datar(){
+var uname=document.getElementById("username").value;
+var mail=document.getElementById("email").value;
+var password=document.getElementById("pswd").value;
+var passrepeat=document.getElementById("pswdrepeat").value;
+var phn=document.getElementById("ph").value;
+localStorage.setItem("uname",uname);
+localStorage.setItem("email",mail);
+localStorage.setItem("ph",phn);
+localStorage.setItem("pswd",password);
+if(email.length== 0 || password.length == 0 || password!=passrepeat){
+alert("Invalid password or email");
+}
+else{
+alert("You have sign-up successfully");
+window.open('login.html').close;
+}
+}
+</script>
+</body>
+
+</html>

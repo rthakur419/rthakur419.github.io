@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>
+Log in-EMusic
+</title>
+<link rel="icon" href="icon.png" sizes="16x16 32x32" type="image/png">
+
+<style>
+
+input.data{
+width:100%;;
+height:50px;
+border: 2px solid #eee;
+background-color:#eee;
+border-radius: 6px;
+}
+fieldset{
+background:rgba(0,0,0,.7);
+border-color:#eee;
+width:500px;
+}
+Form {
+margin-top:100px;
+margin-right:500px;
+margin-left:400px;
+}
+button
+{
+color: #000;
+border-radius: 8px;
+background-color:#4CAF50;
+font-size:30px;
+}
+a:link, a:visited {
+text-decoration: none
+}
+</style>
+
+</head>
+ <body style="background-image:url(login-bg.jpg)">
+<Form> 
+<fieldset>
+ <legend><div align="center">
+<a href="1.html"><img src="icon.png"  height="55" width="55"></a>
+ </div></a></legend>
+    <input type="email" id="email" class="data" placeholder="Email"  name="email" required>
+    <br><br>
+	<input type="password" class="data" placeholder="Password" id="password" name="pswd" required>
+	<input type="checkbox" class="option" name="remember"> <font color="#fff">Remember me</font>
+	<br><br>
+      <div align="center"><button onclick="matching()">Log In</button><div>
+    </div>
+	<p><font color="#fff">Don't have an account?</font> <a href="signup.html" style="color:dodgerblue">Sign Up </a></p>
+	</fieldset>
+</form>
+<script>
+function matching(){
+var e=document.getElementById("email").value;
+var p=document.getElementById("password").value;
+if( e == localStorage.getItem("email") && p == localStorage.getItem("pswd") ){
+window.open('home.html');
+window.close(this);
+}
+else
+alert("Invalid email and password");
+}
+</script>
+
+</script>
+</body>
+</html>
