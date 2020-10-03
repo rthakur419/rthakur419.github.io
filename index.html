@@ -1,274 +1,198 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype>
+<html>
 <head>
-      <meta charset="UTF-8">
+ <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Snake Game</title>
-  <style>
-    html, body { height: 100%; margin: 0; }
-    body { background: lightgreen; overflow: hidden;}
-    canvas { border: 1px solid black; }
-   .text-center{
-    text-align:center;}
-	#ID{color:red; 
-	font-family: Cursive; 
-	margin-left: 35%;
-	}
-	#ID2{color:Purple; 
-	font-family: Cursive; 
-	margin-left: 15%;
-	}
-  </style>
+<title>EMusic</title>
+<style>
+body{
+background-image:url("1-bg.jpg");
+}
+h1{
+margin-top:9%;
+margin-left:35%;
+height:30px;
+color: #0fece3;
+font-family:Comic Sans MS;
+font-size:80px;
+}
+h6{
+margin-left:42%;
+height:30px;
+color: #0fece3;
+font-family:Comic Sans MS;
+font-size:30px;
+}
+button
+{
+margin-left:43.5%;
+color: #000;
+border-radius: 8px;
+border: 2px solid #4CAF50;
+font-family:Comic Sans MS;
+font-size:30px;
+}
+button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+footer{
+background-color:#000;
+margin-right:-8px;
+margin-left:-8px;
+margin-bottom:-16px;
+}
+header {
+position:fixed;
+margin-top:-120px;
+margin-right:-8px;
+margin-left:-8px;
+width:100%;
+height:80px;
+background:rgba(0,0,0,.7);
+}
+ul.contact{
+list-style:none;
+display:flex;
+margin-left:80%;
+margin-bottom:1%;
+}
+ul li.cop{
+width:129.68px;
+}
+ul.down{
+display:flex;
+margin-top:20%;
+}
+ul li.legal{
+list-style:none;
+width:91.68px;
+height:50px;
+margin-top:30px;
+}
+ul li.pc{
+list-style:none;
+width:91.68px;
+height:50px;
+margin-top:30px;
+}
+ul li.pp{
+list-style:none;
+width:91.68px;
+height:50px;
+margin-top:30px;
+}
+ul li.aboutus{
+list-style:none;
+width:393.68px;
+height:50px;
+margin-top:30px;
+}
+ul li.icon1{
+list-style:none;
+width:300px;
+margin-top:30px;
+color:#ffff;
+}
+ul.top{
+display:flex;
+margin-top:1%;
+}
+ul li.icon{
+list-style:none;
+width:900px;
+margin-top: 0;
+color:#ffff;
+}
+ul li.premium{
+list-style:none;
+width:91.68px;
+height:50px;
+margin-top: 20;
+}
+ul li.help{
+list-style:none;
+width:55.9px;
+margin-top: 20;
+}
+ul li.download{
+list-style:none;
+width:98.9px;
+margin-top: 20;
+}
+ul li.gap{
+list-style:none;
+width:22px;
+color:#fff;
+margin-top: 20;
+}
+ul li.signup{
+list-style:none;
+width:81.15px;
+margin-top: 20;
+}
+ul li.login{
+list-style:none;
+width:73.1px;
+margin-top: 20;
+}
+a:link, a:visited {
+  color:#fff;
+  text-decoration: none;
+  font-family: Comic Sans MS;
+ 
+}
+a:hover {
+  color: #0fece3;
+  font-family:Comic Sans MS;
+}
+a:link:active, a:visited:active {
+  color:#fff;
+  font-family:Comic Sans MS;
+}
+</style>
+<link rel="icon" href="icon.png" sizes="16x16 32x32" type="image/png">
 </head>
-  <body onload="GetFromLocalStorage()">
-    <h1 style="text-align:center; color:black; font-family: Cursive;"> Snake Game </h1><br>
-    <font id="ID" > </font>
-	<font id="ID2"> </font>
-	<div class="text-center">
-    <canvas width="400" height="400" id="snakegame"> </canvas></div>
-	<script>
-	
-	    var canvas = document.getElementById('snakegame');
-        var context = canvas.getContext('2d');
-        var grid = 16;
-        var count = 0;
-		var score = 0;
-		var High_Score = 0;
-		var flag;
-		var inter;
-		var snake = 
-        {
-            x : 160,
-            y : 160 ,
-            cells : [{x:160 , y:160} , {x:144 , y:160}] ,
-        };
-		var apple = {
-            x: 320,
-            y: 320
-        };
-		
-		// draw apple
-        function drawApple()
-        {
-		    context.fillStyle = 'red';
-            context.fillRect(apple.x, apple.y, grid-1, grid-1); 
-            for(let i=0 ; i<snake.cells.length ; i++)
-            {
-                if(snake.cells[i].x == apple.x && snake.cells[i].y == apple.y)
-	            {
-	                snake.cells.unshift({x: apple.x , y: apple.y}) ;
-		            var number1 = Math.floor((Math.random() * 24) + 1);
-		            var number2 = Math.floor((Math.random() * 24) + 1);
-		            apple.x = number1 * 16;
-		            apple.y = number2 * 16;
-					for(let i = 0 ; i < snake.cells.length ; i++)
-					{
-                        if( apple.x == snake.cells[i].x && apple.y == snake.cells[i].y)
-						{
-                            drawApple();
-                        }
-					}
-		            break;
-	            }
-            }
-			//drawSnake();
-        }
+<body >
+<header >
 
-        drawApple();
+<ul class="top">
+<li class="icon"><a href="1.html"><img src ="icon.png" width="60" height="60">EMusic</a></li>
+<li class ="premium"><a href ="premium.html">Premium</a></li>
+<li class ="help"><a href ="help.html">Help</a></li>
+<li class ="download"><a href ="download.html">Download</a></li>
+<li class = "gap"> | </li>
+<li class ="signup"><a href ="signup.html">Sign up</a></li>
+ <li class ="login"><a href ="login.html" >Log In</a></li> 
+</header>
+<p>
+<h1>Music is life.</h1>
+<h6>Listen,Feel,Share</h6>
+<button onclick="window.location.href='signup.html'">Join For Free</button>
+</p>
+<footer>
+<ul class="down">
+<li class="legal"><a href ="legal.html">Legal</a></li>
+<li class="pc"><a href ="center.html">Privacy Center</a></li>
+<li class="pp"><a href ="policy.html">Privacy Policy</a></li>
+<li class="aboutus"><a href ="about.html">About Us</a></li>
+<li class="icon1"><img src ="icon.png" width="60" height="60" alt="logo"></li>
+<li class="icon1"><img src ="SI.png" usemap="#social" alt="social image"></li>
+<map name="social">
+<area shape="rect"  coords="0,0,60,55" href="www.fb.com/#" alt="fb">
+<area shape="rect"  coords="60,0,130,50" href="www.gplus.com/#" alt="gplus">
+<area shape="rect"  coords="130,0,200,50" href="www.isnta.com/#" alt="insta">
+<area shape="rect"  coords="200,0,260,50" href="www.twitter.com/#" alt="twitter">
+</map>
+</ul>
+  <br><br>
+<ul class="contact">
+<li class="cop"><font face="verdana" color="#fff">EMusic &copy; 2019</font></li>
+</ul>
+</footer>
 
-        // draw snake
-        function drawSnake()
-        {
-		   
-		    if(snake.cells.length != 0){
-		    context.fillStyle = '#1374e9';
-			context.fillRect(snake.cells[0].x, snake.cells[0].y, grid-1, grid-1);}
-			
-            context.fillStyle = '#A7A2A2';
-            for(let i=1 ; i<snake.cells.length ; i++)
-                context.fillRect(snake.cells[i].x, snake.cells[i].y, grid-1, grid-1);
-			
-			if(snake.cells.length <= 2)
-			{}
-			else{
-			count = snake.cells.length -2;
-			score = (count*5);}
-			
-			if(High_Score <= score)
-			{High_Score = score;}
-			
-			//High_Score = score;
-			
-			document.getElementById("ID").innerHTML = "Score : " + score;
-			document.getElementById("ID2").innerHTML = "High Score : " + High_Score;
-			
-			StoreInLocalStorage();
-        }
-        
-		function StoreInLocalStorage()
-		{
-		    localStorage.snake = JSON.stringify(snake);
-			localStorage.High_Score = JSON.stringify(High_Score);
-		}
-		
-		function GetFromLocalStorage()
-		{
-		    if(!localStorage.snake)
-			{
-			    localStorage.snake = JSON.stringify([]);
-				snake = {
-                x : 160,
-                y : 160 ,
-                cells : [{x:160 , y:160} , {x:144 , y:160}] ,
-                };
-		        //drawSnake();
-			}
-			else
-			{
-			    snake = JSON.parse(localStorage.snake);
-				if(snake.cells.length == 0)
-				{
-				    snake = {
-                    x : 160,
-                    y : 160 ,
-                    cells : [{x:160 , y:160} , {x:144 , y:160}] ,
-                    };
-				}
-				console.log(snake);
-				//drawSnake();
-			}
-			if(!localStorage.High_Score)
-			{
-			    localStorage.High_Score = JSON.stringify();
-			}
-			else
-			{
-			    High_Score = JSON.parse(localStorage.High_Score);
-			}
-			drawSnake();
-		}
-		
-	    //drawSnake();  
-		function moveSnake( dx , dy)
-        {
-            snake.x += dx ;
-            snake.y += dy ;
-            if(snake.x >= 400 || snake.x < 0 || snake.y >= 400 || snake.y < 0)
-            {
-		        GameOver();	
-            }
-			for(let i=0 ; i<snake.cells.length ; i++)
-			{
-			    if(snake.x == snake.cells[i].x && snake.y == snake.cells[i].y)
-				{
-				    GameOver();
-				}
-			}
-            snake.cells.unshift({x: snake.x , y: snake.y}) ; // Insert at 0th position
-            snake.cells.pop();  // remove the last element
-            drawSnake();
-        }
-		
-		function GameOver()
-		{
-            context.clearRect(0, 0, canvas.width,canvas.height);// Clear the Canvas
-            snake.cells = [];
-			apple = {x:-100,y:-20};
-            context.fillStyle = 'red'; 
-            context.font = "30px Arial";
-            context.textAlign = "center";
-            context.fillText("Game Over" , canvas.width/2, canvas.height/2);
-        }
 
-        // listen to keyboard events to move the snake
-        document.addEventListener('keydown', function(e) 
-        {
-            let dx = 0, dy = 0 ;
-            if (e.keyCode == 37 ) 
-            {
-                if(flag == 39)
-	            {}
-	            else
-				{
-				    clearInterval(inter);
-                    inter = setInterval(function(){
-                    dx = -grid; flag=37;
-                    dy = 0;
-	                context.clearRect(0, 0, canvas.width,canvas.height);// Clear the Canvas
-                    moveSnake(dx,dy);
-                    drawApple();
-					},100);
-				}
-            }
-            // up arrow key
-            else if (e.keyCode == 38 ) 
-            {
-                if(flag == 40)
-	            {}
-	            else
-				{
-				    clearInterval(inter);
-                    inter = setInterval(function(){
-				    dx = 0;
-                    dy = -grid; flag=38;
-					context.clearRect(0, 0, canvas.width,canvas.height);// Clear the Canvas
-                    moveSnake(dx,dy);
-                    drawApple();
-					},100);
-				}
-            }
-            // right arrow key
-            else if (e.keyCode == 39 ) 
-            {
-                if(flag == 37)
-	            {}
-	            else
-				{
-				    clearInterval(inter);
-                    inter = setInterval(function(){
-                    dx = grid; flag=39;
-                    dy = 0;
-					context.clearRect(0, 0, canvas.width,canvas.height);// Clear the Canvas
-                    moveSnake(dx,dy);
-                    drawApple();
-					},100);
-				}
-			}
-            // down arrow key
-            else if (e.keyCode == 40 ) 
-            {
-                if(flag == 38)
-	            {}
-	            else
-				{
-				    clearInterval(inter);
-                    inter = setInterval(function(){
-				    dx = 0;
-                    dy = grid; flag=40;
-	                context.clearRect(0, 0, canvas.width,canvas.height);// Clear the Canvas
-                    moveSnake(dx,dy);
-                    drawApple();
-					},100);
-				}
-            }
-			else if(e.keyCode == 13)
-			{
-			    document.location.reload();
-				snake = {
-                x : 160,
-                y : 160 ,
-                cells : [{x:160 , y:160} , {x:144 , y:160}] ,
-                };
-		        drawSnake();
-			}
-			else if(e.keyCode == 80 || e.keyCode == 112)
-			{
-			    clearInterval(inter);
-			}
-        });
-		
-	</script>
-  </body>
+
+</body>
 </html>
-
